@@ -1,0 +1,52 @@
+﻿
+<div id="content">
+  <h1 id="tableLabel">Cálculo do CDB</h1>
+  <div  *ngIf="resultado && resultado.success == false" class="alert alert-danger" role="alert">
+    {{resultado.message}}
+  </div>
+  <form [formGroup]="form">
+      <div class="form-group">
+        <label for="vm">Valor Inicial</label>
+          <input id="vm" type="text" id="typeText" class="form-control" formControlName="valorMonetario" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"  />
+      </div>
+      <div class="form-group">
+          <label for="prz">Prazo (meses)</label>
+          <input type="number" id="typeText" class="form-control"  formControlName="prazo"/>
+          <small *ngIf="form.get('prazo')?.hasError('min')" class="text-danger">
+            O prazo mínimo para invesimento é de 2 meses
+          </small>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn" (click)="clear()">Limpar</button>
+        <button [disabled]="!form.valid" class="btn btn-info " (click)="submit()">Calcular</button>
+      </div>
+      <div class="resultado" *ngIf="resultado.data">
+        <table class="table">
+          <tbody>
+          <tr>
+            <td>Rendimento</td>
+            <td class="text-right">{{resultado.data.valorBruto | currency:'BRL':true:'1.2-2'}}</td>
+          </tr>
+          <tr>
+            <td ><b>Total Bruto</b></td>
+            <td class="text-right" ><b>{{valorInvestido + resultado.data.valorBruto | currency:'BRL':true:'1.2-2'}}</b></td>
+          </tr>
+
+          <tr>
+            <td>
+              Impostos
+              <small>({{resultado.data.impostoPct}}%)</small>
+            </td>
+            <td class="text-right">{{resultado.data.impostoValor | currency:'BRL':true:'1.2-2'}}</td>
+          </tr>
+
+          <tr class="table-success">
+            <td ><b>Total Liquido</b></td>
+            <td class="text-right "><b>{{valorInvestido + resultado.data.valorLiquido | currency:'BRL':true:'1.2-2'}}</b></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+  </form>
+</div>

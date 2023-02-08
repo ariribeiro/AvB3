@@ -1,0 +1,25 @@
+body {
+  background-color: #fcfcfc;
+}
+#content {
+  background-color: #fcfcfc;
+  width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(173, 173, 173, 1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(173, 173, 173, 1);
+  box-shadow: 0px 0px 5px 0px rgba(173, 173, 173, 1);
+}
+.form-group {
+  margin-bottom: 10px;
+}
+.text-right {
+  text-align: right;
+}
+.resultado {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #9b9b9b;
+  background-color: #ffffff;
+}
