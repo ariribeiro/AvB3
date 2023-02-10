@@ -16,10 +16,10 @@ namespace AvB3.Test.Unit
 			CalculoCdbResult? data = result.Result.Data as CalculoCdbResult;
 			Assert.IsNotNull(result);
 			Assert.AreEqual(true, result.Result.Success);
-			Assert.AreEqual(2470.6252406255517, data?.ValorBruto);
-			Assert.AreEqual(22470.62524062555, data?.ValorBruto + command.ValorMonetario);
+			Assert.AreEqual(22679.96905856736, data?.ValorBruto);
+			Assert.AreEqual(22210.97447331807, data?.ValorLiquido);
 			Assert.AreEqual(17.5, data?.ImpostoPct);
-			Assert.AreEqual(432.3594171094715, data?.ImpostoValor);
+			Assert.AreEqual(468.9945852492879, data?.ImpostoValor);
 		}
 
 		[TestMethod]

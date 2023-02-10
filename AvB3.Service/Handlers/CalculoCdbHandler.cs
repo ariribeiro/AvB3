@@ -8,7 +8,7 @@ namespace AvB3.Service.Handlers
 	{
 
 		private readonly double _cdi = 0.9 / 100;
-		private readonly double _tb = (double)160 / 100;
+		private readonly double _tb = (double)108 / 100;
 		private readonly List<double> _meses;
 
 		public CalculoCdbHandler()
@@ -40,7 +40,7 @@ namespace AvB3.Service.Handlers
 				var impostoValor = (impostoPct / 100) * rendimentoBruto;
 				var rendimentoLiquido = rendimentoBruto - impostoValor;
 
-				var rendimentoResult = new CalculoCdbResult(rendimentoBruto, rendimentoLiquido, impostoValor, impostoPct);
+				var rendimentoResult = new CalculoCdbResult(request.ValorMonetario+rendimentoBruto, request.ValorMonetario+rendimentoLiquido, impostoValor, impostoPct);
 				var obj = new GenericCommandResult(true, "Calculo realizado", rendimentoResult);
 
 				return await Task.FromResult(obj);
