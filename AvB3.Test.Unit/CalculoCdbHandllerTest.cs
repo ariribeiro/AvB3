@@ -13,13 +13,13 @@ namespace AvB3.Test.Unit
 			var handller = new CalculoCdbHandler();
 			var command = new CalculoCdbCommand(20000, 13);
 			var result = handller.Handle(command, new CancellationToken());
-			var data = (CalculoCdbResult)result.Result.Data;
+			CalculoCdbResult? data = result.Result.Data as CalculoCdbResult;
 			Assert.IsNotNull(result);
 			Assert.AreEqual(true, result.Result.Success);
-			Assert.AreEqual(2470.6252406255517, data.ValorBruto);
-			Assert.AreEqual(22470.62524062555, data.ValorBruto + command.ValorMonetario);
-			Assert.AreEqual(17.5, data.ImpostoPct);
-			Assert.AreEqual(432.3594171094715, data.ImpostoValor);
+			Assert.AreEqual(2470.6252406255517, data?.ValorBruto);
+			Assert.AreEqual(22470.62524062555, data?.ValorBruto + command.ValorMonetario);
+			Assert.AreEqual(17.5, data?.ImpostoPct);
+			Assert.AreEqual(432.3594171094715, data?.ImpostoValor);
 		}
 
 		[TestMethod]

@@ -1,11 +1,6 @@
 ﻿using AvB3.Service.Commands.Contracts;
 using Flunt.Notifications;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AvB3.Service.Commands
 {
@@ -19,7 +14,7 @@ namespace AvB3.Service.Commands
 			ValorMonetario = valorMonetario;
 			Prazo = prazo;
 		}
-		
+
 
 		public void Validate()
 		{
